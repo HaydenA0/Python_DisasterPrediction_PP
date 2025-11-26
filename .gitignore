@@ -9,3 +9,4 @@ venv/
 code/data/
 pyrightconfig.json
 code/.vscode/
+code/notebooks/

@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -148,7 +147,7 @@ def print_accuracy_decision_tree_model(model, X_test: pd.DataFrame, y_test: pd.S
 if __name__ == "__main__":
     file_path = "data/raw/global_disaster_response.csv"
     raw_data = read_raw_data(file_path)
-    processed_data = processs_data(raw_data, method="z-score")
+    processed_data = processs_data(raw_data, method=NORMALIZATION_METHODS[0])
     train_data, val_data, test_data = split_data_train_test_validation(processed_data)
     X_train = get_features(train_data)
     y_train = train_data[LABEL_COLUMN]
@@ -160,7 +159,6 @@ if __name__ == "__main__":
     dt_model = trai_decsion_tree_model(X_train, y_train)
     print("Decision Tree Model trained successfully.")
     print_accuracy_decision_tree_model(dt_model, X_test, y_test)
-    display_data_info(processed_data)
 
 
 
