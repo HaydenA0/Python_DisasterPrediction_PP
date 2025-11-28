@@ -46,6 +46,17 @@ def accuracy_linear_2_models(model_recovery, model_economic, X_test, y_test):
     test_r2_economic = r2_score(y_test[["economic_loss_usd"]], y_test_economic_pred)
 
     # AI generated snippet
+    metrics = {
+        "recovery_days": {
+            "mse": test_mse_recovery,
+            "r2": test_r2_recovery,
+        },
+        "economic_loss_usd": {
+            "mse": test_mse_economic,
+            "r2": test_r2_economic,
+        },
+    }
+
     print("-" * 50)
     print(f"{'Target Variable':<25} | {'MSE':<10} | {'R² Score':<10}")
     print("-" * 50)
@@ -56,3 +67,5 @@ def accuracy_linear_2_models(model_recovery, model_economic, X_test, y_test):
         f"{'Economic Loss USD':<25} | {test_mse_economic:<10.4f} | {test_r2_economic:.4f}"
     )
     print("-" * 50)
+
+    return metrics
